@@ -1,0 +1,90 @@
+﻿<Window x:Class="SQLStringer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SQLStringer"
+        mc:Ignorable="d"
+        Title="SQLStringer" Height="350" Width="525" Closed="FormClosed">
+
+    <Grid Background="#FF3B3B3B" Margin="0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2"/>
+            <ColumnDefinition Width="39"/>
+            <ColumnDefinition Width="198*"/>
+            <ColumnDefinition Width="213*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="4"/>
+            <RowDefinition Height="23"/>
+            <RowDefinition Height="23"/>
+            <RowDefinition Height="219*"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+        <!--メニューバー-->
+        <Menu x:Name="menu" Margin="0,0,-0.333,1" Grid.RowSpan="1" Grid.ColumnSpan="4" Background="#FFE3E3E3" Foreground="#FF080808">
+            <MenuItem Header="ファイル">
+                <MenuItem Header="開く" Click="Load_Click" />
+                <MenuItem Header="保存" Click="Upatte_Click"  />
+                <MenuItem Header="名前を付けて保存" Click="SaveNew_Click" />
+                <MenuItem Header="終了" Click="Close_Click" />
+            </MenuItem>
+            <MenuItem Header="編集">
+                <MenuItem Header="元に戻す" Click="Undo_Click" />
+                <MenuItem Header="やり直し" Click="Redo_Click" />
+                <MenuItem Header="すべて選択" Click="SelectAll_Click" />
+            </MenuItem>
+            <MenuItem Header="ツール">
+                <MenuItem Header="設定" />
+            </MenuItem>
+            <MenuItem Header="ヘルプ">
+                <MenuItem Header="ヘルプの表示" />
+                <MenuItem Header="バージョン情報" />
+            </MenuItem>
+        </Menu>
+        <!--ステータスバー-->
+        <StatusBar Margin="0,0,-0.333,0.667" Grid.Row="5"  Grid.ColumnSpan="4" Height="19" VerticalAlignment="Bottom" Background="#FF3B3B3B" BorderBrush="#FFE5E5E5"/>
+        <!--リッチテキスト-->
+        <RichTextBox x:Name="txtSQL" Margin="2,3,2,0" Grid.Row="4" Block.LineHeight="1" Grid.ColumnSpan="4" Grid.RowSpan="1" Background="#FF3B3B3B" Foreground="White" SelectionBrush="#FFEDEDED" BorderBrush="#FFE4E4E4" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+            <FlowDocument>
+                <Paragraph>
+                    <Run Text=""/>
+                </Paragraph>
+            </FlowDocument>
+        </RichTextBox>
+        <!--ラベル-->
+        <Label x:Name="label" Content="開始" HorizontalAlignment="Stretch" Margin="0" Grid.Row="2" Width="auto"  HorizontalContentAlignment="Center" FontFamily="Meiryo UI" Padding="0" VerticalContentAlignment="Center" Grid.Column="1" Foreground="#FF0DB6FF" Background="{x:Null}"/>
+        <Label x:Name="label1" Content="終了" HorizontalAlignment="Stretch" Margin="0" Grid.Row="3" VerticalAlignment="Stretch" Height="auto" HorizontalContentAlignment="Center" FontFamily="Meiryo UI" Padding="0" VerticalContentAlignment="Center" Grid.Column="1" Foreground="#FF14B8FF"/>
+        <!--コンボボックス-->
+        <ComboBox x:Name="cmbStart" Grid.Column="2" Margin="0" Grid.Row="2" VerticalAlignment="Top" IsEditable="True" Background="White" />
+        <ComboBox x:Name="cmbEnd" Grid.Column="2" Margin="0,0.333,0,0" Grid.Row="3" VerticalAlignment="Top"  IsEditable="True" Background="White"/>
+        <!--ボタン-->
+        <Button x:Name="btnRun" Content="Run" Grid.Column="3" HorizontalAlignment="Left" Margin="5.333,0,0,0" Grid.Row="2" VerticalAlignment="Stretch" Width="69" Click="RunClick" Foreground="White" BorderThickness="1">
+            <Button.Background>
+                <RadialGradientBrush>
+                    <GradientStop Color="#FF26B4FB" Offset="0"/>
+                    <GradientStop Color="#FF0093FF" Offset="1"/>
+                </RadialGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button x:Name="btnRemove" Content="Remove" Grid.Column="3" HorizontalAlignment="Left" Margin="5.333,0,0,0" Grid.Row="3" VerticalAlignment="Stretch" Width="69" BorderBrush="{x:Null}" Foreground="White" Padding="0" Click="Remove_Click">
+            <Button.Background>
+                <RadialGradientBrush>
+                    <GradientStop Color="#FF26B4FB" Offset="0"/>
+                    <GradientStop Color="#FF0093FF" Offset="1"/>
+                </RadialGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button x:Name="btnAllCopy" Content="AllCopy" Grid.Column="3" HorizontalAlignment="Left" Margin="76.333,0,0,0" Grid.Row="2" VerticalAlignment="Stretch" Width="69" BorderBrush="{x:Null}" Foreground="White" Padding="0" Click="AllCopy_Click">
+            <Button.Background>
+                <RadialGradientBrush>
+                    <GradientStop Color="#FF26B4FB" Offset="0"/>
+                    <GradientStop Color="#FF0093FF" Offset="1"/>
+                </RadialGradientBrush>
+            </Button.Background>
+        </Button>
+
+
+    </Grid>
+</Window>
