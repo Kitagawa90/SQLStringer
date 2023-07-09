@@ -23,7 +23,7 @@
             <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
         <!--メニューバー-->
-        <Menu x:Name="menu" Margin="0,0,-0.333,1" Grid.RowSpan="1" Grid.ColumnSpan="4" Background="#FFE3E3E3" Foreground="#FF080808">
+        <Menu x:Name="menu" Margin="0,0,-0.333,1" Grid.RowSpan="1" Grid.ColumnSpan="4" Background="#FF3B3B3B" Foreground="White">
             <MenuItem Header="ファイル">
                 <MenuItem Header="開く" Click="Load_Click" />
                 <MenuItem Header="保存" Click="Upatte_Click"  />
